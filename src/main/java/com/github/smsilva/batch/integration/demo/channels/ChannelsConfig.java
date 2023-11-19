@@ -18,4 +18,14 @@ public class ChannelsConfig {
         return new DirectChannel();
     }
 
+    @Bean
+    public MessageChannel customerTransformChannel() {
+        return new DirectChannel();
+    }
+
+    @Bean
+    public MessageChannel inputCustomers() {
+        return new DirectChannel();
+    }
+
 }

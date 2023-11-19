@@ -22,7 +22,9 @@ public class FileInboundChannelAdapter {
     }
 
     @Bean
-    @InboundChannelAdapter(value = "fileInputChannel", poller = @Poller(fixedDelay = "1000"))
+    @InboundChannelAdapter(
+            value = "fileInputChannel",
+            poller = @Poller(fixedDelay = "1000"))
     public MessageSource<File> fileReadingMessageSource() {
         FileReadingMessageSource source = new FileReadingMessageSource();
         source.setDirectory(new File(inboundFilePath));

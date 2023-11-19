@@ -12,11 +12,11 @@ public class FileSplitterConfig {
 
     @Bean
     @Splitter(inputChannel = "fileInputChannel")
-    public MessageHandler fileSplitter(MessageChannel processFileChannel) {
-        FileSplitter splitter = new FileSplitter(true, true);
+    public MessageHandler fileSplitter(MessageChannel customerTransformChannel) {
+        FileSplitter splitter = new FileSplitter(true, false);
         splitter.setFirstLineAsHeader("id,name");
         splitter.setApplySequence(false);
-        splitter.setOutputChannel(processFileChannel);
+        splitter.setOutputChannel(customerTransformChannel);
         return splitter;
     }
 
