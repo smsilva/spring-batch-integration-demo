@@ -7,10 +7,8 @@ import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.file.FileReadingMessageSource;
-import org.springframework.integration.file.filters.FileSystemPersistentAcceptOnceFileListFilter;
+import org.springframework.integration.file.filters.AcceptOnceFileListFilter;
 import org.springframework.integration.file.filters.SimplePatternFileListFilter;
-import org.springframework.integration.metadata.ConcurrentMetadataStore;
-import org.springframework.integration.metadata.SimpleMetadataStore;
 
 import java.io.File;
 
@@ -26,14 +24,10 @@ public class FileInboundChannelAdapter {
     @Bean
     @InboundChannelAdapter(value = "fileInputChannel", poller = @Poller(fixedDelay = "1000"))
     public MessageSource<File> fileReadingMessageSource() {
-        ConcurrentMetadataStore concurrentMetadataStore = new SimpleMetadataStore();
-        var fileSystemPersistentAcceptOnceFileListFilter = new FileSystemPersistentAcceptOnceFileListFilter(concurrentMetadataStore, "fileReadingMessageSource");
-        fileSystemPersistentAcceptOnceFileListFilter.setFlushOnUpdate(true);
-
         FileReadingMessageSource source = new FileReadingMessageSource();
         source.setDirectory(new File(inboundFilePath));
         source.setFilter(new SimplePatternFileListFilter("*.txt"));
-        source.setFilter(fileSystemPersistentAcceptOnceFileListFilter);
+        source.setFilter(new AcceptOnceFileListFilter<>());
         return source;
     }
 
