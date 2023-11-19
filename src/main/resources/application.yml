@@ -21,3 +21,32 @@ spring:
     password: postgres
     initialize: false # Execute the schema.sql and data.sql files on startup
     continue-on-error: false
+
+management:
+  server:
+    port: 9091
+
+  info:
+    java:
+      enabled: true
+
+    env:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+      base-path: /actuator
+
+  metrics:
+    tags:
+      application: app-demo
+      environment: ${ENVIRONMENT:local}
+
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
