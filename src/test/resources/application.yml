@@ -1,3 +1,8 @@
+app:
+  inbound:
+    file:
+      path: classpath:/resources/static
+
 spring:
   application:
     name: spring-batch-integration-demo-test
