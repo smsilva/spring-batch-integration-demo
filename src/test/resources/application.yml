@@ -1,7 +1,7 @@
 app:
   inbound:
     file:
-      path: classpath:/resources/static
+      path: src/main/resources/static
 
 spring:
   application:
