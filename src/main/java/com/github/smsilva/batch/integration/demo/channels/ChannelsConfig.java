@@ -13,4 +13,9 @@ public class ChannelsConfig {
         return new DirectChannel();
     }
 
+    @Bean
+    public MessageChannel processFileChannel() {
+        return new DirectChannel();
+    }
+
 }
