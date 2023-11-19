@@ -12,7 +12,7 @@ public class LoggingHandlerConfig {
     @ServiceActivator(inputChannel = "processFileChannel")
     public LoggingHandler logging() {
         LoggingHandler adapter = new LoggingHandler(LoggingHandler.Level.INFO);
-        adapter.setLoggerName("TEST_LOGGER");
+        adapter.setLoggerName(LoggingHandler.class.getName());
         adapter.setLogExpressionString("headers.id + ': ' + payload");
         return adapter;
     }
