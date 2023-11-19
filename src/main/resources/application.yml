@@ -1,3 +1,8 @@
+app:
+  inbound:
+    file:
+      path: /tmp/inbound
+
 spring:
   application:
     name: spring-batch-integration-demo
