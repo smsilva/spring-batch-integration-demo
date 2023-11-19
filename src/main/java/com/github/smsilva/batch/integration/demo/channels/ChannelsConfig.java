@@ -14,11 +14,6 @@ public class ChannelsConfig {
     }
 
     @Bean
-    public MessageChannel processFileChannel() {
-        return new DirectChannel();
-    }
-
-    @Bean
     public MessageChannel customerTransformChannel() {
         return new DirectChannel();
     }
