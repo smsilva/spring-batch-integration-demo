@@ -26,7 +26,7 @@ public class FileInboundChannelAdapter {
             value = "fileInputChannel",
             poller = @Poller(fixedDelay = "1000"))
     public MessageSource<File> fileReadingMessageSource() {
-        FileReadingMessageSource source = new FileReadingMessageSource();
+        var source = new FileReadingMessageSource();
         source.setDirectory(new File(inboundFilePath));
         source.setFilter(new SimplePatternFileListFilter("*.txt"));
         source.setFilter(new AcceptOnceFileListFilter<>());
