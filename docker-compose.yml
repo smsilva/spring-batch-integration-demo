@@ -11,6 +11,7 @@ services:
       PGDATA: /data/postgres
     volumes:
        - postgres:/data/postgres
+       - ./scripts/postgresql/init.d:/docker-entrypoint-initdb.d:ro
     ports:
       - "5432:5432"
     networks:

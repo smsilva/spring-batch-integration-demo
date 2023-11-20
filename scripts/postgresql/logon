@@ -6,3 +6,4 @@ psql \
   --port 5432 \
   --dbname postgres \
   --username postgres
+''
