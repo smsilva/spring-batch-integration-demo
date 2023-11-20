@@ -1,9 +1,8 @@
 #!/bin/bash
-export PGPASSWORD="postgres"
+export PGPASSWORD="local"
 
 psql \
   --host localhost \
   --port 5432 \
-  --dbname postgres \
-  --username postgres
-''
+  --dbname docker \
+  --username developer
