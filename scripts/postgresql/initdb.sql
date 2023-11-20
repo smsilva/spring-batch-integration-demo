@@ -1,6 +1,5 @@
 CREATE DATABASE docker;
 
-CREATE user silvios;
-GRANT ALL PRIVILEGES ON DATABASE docker TO silvios;
+CREATE USER developer WITH PASSWORD 'local';
 
-ALTER USER demo WITH PASSWORD 'demo';
+GRANT ALL PRIVILEGES ON DATABASE docker TO developer;
