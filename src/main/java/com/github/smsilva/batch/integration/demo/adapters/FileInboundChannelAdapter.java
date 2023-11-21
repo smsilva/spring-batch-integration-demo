@@ -15,11 +15,8 @@ import java.io.File;
 @Configuration
 public class FileInboundChannelAdapter {
 
-    private final String inboundFilePath;
-
-    public FileInboundChannelAdapter(@Value("${app.inbound.file.path}") String inboundFilePath) {
-        this.inboundFilePath = inboundFilePath;
-    }
+    @Value("${app.inbound.file.path}")
+    String inboundFilePath;
 
     @Bean
     @InboundChannelAdapter(
