@@ -9,10 +9,10 @@ spring:
 
   batch:
     jdbc:
-      initialize-schema: always # always, never, embedded
+      initialize-schema: never # always, never, embedded
 
     job:
-      enabled: false
+      enabled: true
 
   jpa:
     open-in-view: false
